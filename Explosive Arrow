@@ -10,7 +10,7 @@ package me.Joey.MultiArrow;
 	import org.bukkit.entity.Projectile;
 	import org.bukkit.event.Listener;
 	import org.bukkit.event.block.Action;
-  import org.bukkit.ChatColor;
+        import org.bukkit.ChatColor;
 	import org.bukkit.event.player.PlayerInteractEvent;
 	import org.bukkit.event.player.PlayerItemHeldEvent;
 	import org.bukkit.event.entity.EntityShootBowEvent;
@@ -23,7 +23,7 @@ package me.Joey.MultiArrow;
 
 	public class MultiArrow extends JavaPlugin implements Listener {
   
-    public String prefix = "[ExplosiveArrow] ";
+        public String prefix = "[ExplosiveArrow] ";
   	public String sc = ChatColor.GRAY + "[" + ChatColor.DARK_AQUA + "ExplosiveArrow" + ChatColor.GRAY + "] ";
 
 	    int ExplosiveArrow = 0;
@@ -54,14 +54,14 @@ package me.Joey.MultiArrow;
 	        Arrow arrow;
 	        Player player;
 
-	        // Just wants arrows
+	        // Just interesting in arrow
 	        try {
 	            arrow = (Arrow) projectile;
 	        } catch (ClassCastException e) {
 	            return;
 	        }
 
-	        // Only interested in players shooting.
+	        // Just interested in player
 	        try {
 	            player = (Player) arrow.getShooter();
 	        } catch (ClassCastException e) {
@@ -101,7 +101,7 @@ package me.Joey.MultiArrow;
 	           this.ExplosiveArrow == 0 && 
 	           p.getItemInHand().getType() == Material.BOW &&
 	           p.getGameMode() != GameMode.CREATIVE && // No need for arrows in inventory in creative mode
-	           p.getInventory().contains(Material.TNT, 1)) // need at least one blaze rod in inventory for explosive arrows.
+	           p.getInventory().contains(Material.TNT, 1)) // need at least one TNT in inventory for explosion
 	        {
 	            p.getInventory().addItem(new ItemStack(Material.ARROW, 1));
 	            this.ExplosiveArrow = 1;
